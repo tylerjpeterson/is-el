@@ -1,0 +1,56 @@
+{
+	"name": "is-el",
+	"version": "1.0.0",
+	"description": "Utility to determine if passed value is a valid element.",
+	"author": "Tyler Peterson <tylerjpeterson@gmail.com>",
+	"main": "./index.js",
+	"scripts": {
+    "build": "mkdir -p tmp/ && rm -rf coverage && browserify -r -t [ browserify-istanbul ] ./index.js --standalone isEl > tmp/is-el.debug.js",
+    "coverage": "npm run build && node test/test.cli.js && istanbul report --root coverage lcov && open coverage/lcov-report/index.html",
+    "docs": "jsdoc index.js -p -d docs/",
+    "test": "open test/spec/index.html",
+    "lint": "xo ./index.js || true"
+	},
+	"dependencies": {
+	},
+  "devDependencies": {
+    "browserify": "latest",
+    "browserify-istanbul": "latest",
+    "chai": "latest",
+    "http-server": "latest",
+    "istanbul": "latest",
+    "jsdoc": "latest",
+    "mocha": "latest",
+    "mocha-phantomjs": "latest",
+    "phantomjs": "2.1.1"
+  },
+	"bugs": {
+		"url": "https://github.com/tylerjpeterson/is-el/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tylerjpeterson/is-el"
+	},
+	"homepage": "https://github.com/tylerjpeterson/is-el",
+	"contributors": [
+		""
+	],
+	"engineStrict": true,
+	"engines": {
+		"node": ">=0.12.0"
+	},
+	"xo": {
+		"globals": [
+			"document",
+			"window",
+			"require",
+			"module",
+      "Node"
+		],
+    "rules": {
+      "operator-linebreak": 0
+    }
+	},
+	"keywords": [],
+	"license": "MIT"
+}
